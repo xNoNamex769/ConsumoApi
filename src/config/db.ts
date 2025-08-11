@@ -33,18 +33,41 @@ import { HistorialSolicitud } from '../models/HistorialSolicitud';
 
 //ola
 
-dotenv.config();
-
 export const db = new Sequelize({
-  database: process.env.DB_DATABASE as string,
+  database: process.env.DB_NAME as string, // antes DB_DATABASE
   username: process.env.DB_USER as string,
-  password: process.env.DB_PASSWORD as string,
+  password: process.env.DB_PASS as string, // antes DB_PASSWORD
   host: process.env.DB_HOST as string,
   port: parseInt(process.env.DB_PORT as string, 10),
-  dialect: 'mysql',
-  timezone: '-05:00',
+  dialect: "mysql",
+  timezone: "-05:00",
 
-  models: [Usuario, Actividad, RolUsuario, Aprendiz, PrestamoElementos, Asistencia, Constancia, ConsultaIA, RelUsuarioEvento, RelUsuarioFeedback, SolicitudApoyo, Feedback, Notificaciones, PlanificacionEvento, Evento, PerfilInstructor, EventoActividad, ReaccionEvento, ResumenEventoIA, ComentarioIA, ConfirmacionAsistencia, Elemento, GestionEvento, HistorialSolicitud],
+  models: [
+    Usuario,
+    Actividad,
+    RolUsuario,
+    Aprendiz,
+    PrestamoElementos,
+    Asistencia,
+    Constancia,
+    ConsultaIA,
+    RelUsuarioEvento,
+    RelUsuarioFeedback,
+    SolicitudApoyo,
+    Feedback,
+    Notificaciones,
+    PlanificacionEvento,
+    Evento,
+    PerfilInstructor,
+    EventoActividad,
+    ReaccionEvento,
+    ResumenEventoIA,
+    ComentarioIA,
+    ConfirmacionAsistencia,
+    Elemento,
+    GestionEvento,
+    HistorialSolicitud,
+  ],
 
   logging: false,
   pool: {
@@ -55,5 +78,5 @@ export const db = new Sequelize({
   },
   define: {
     timestamps: true,
-  }
+  },
 });
